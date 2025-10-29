@@ -3,4 +3,16 @@
     <string name="Login">Login</string>
     <string name="Pass">Password</string>
     <string name="daftar">Daftar</string>
+    <string name="daf_kel">Jenis Kelamin</string>
+    <string name="kel1">Laki-Laki</string>
+    <string name="kel2">Perempuan</string>
+    <string name="ketentuan">Saya Setuju Dengan Syarat Dan Ketentuan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_fragment">Ini adalah Halaman Dashboard</string>
+    <string-array name="nama_array_kota">
+        <item>Yogyakarta</item>
+        <item>Jakarta</item>
+        <item>Surabaya</item>
+        <item>Bandung</item>
+    </string-array>
 </resources>

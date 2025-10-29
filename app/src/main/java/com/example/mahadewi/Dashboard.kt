@@ -17,6 +17,11 @@ class Dashboard : AppCompatActivity() {
 
         val tv_ucapan: TextView = findViewById(R.id.tv_ucapan)
         val btn_web: Button = findViewById(R.id.btn_web)
+        val dashboardFragment = DashboardFragment()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, dashboardFragment)
+            .commit()
 
         val Username = intent.getStringExtra("nama" )
 
