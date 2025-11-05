@@ -1,36 +1,39 @@
 package com.example.mahadewi
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import android.net.Uri
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.dashboard)
 
-        val tv_ucapan: TextView = findViewById(R.id.tv_ucapan)
-        val btn_web: Button = findViewById(R.id.btn_web)
-        val dashboardFragment = DashboardFragment()
+        val dataList = arrayListOf(
+            Mahasiswa("sasa", "24.12.3112"),
+            Mahasiswa("Nasylla", "24.12.3105"),
+            Mahasiswa("Intan", "24.12.3108"),
+            Mahasiswa("raisha", "24.12.3100"),
+            Mahasiswa("labib", "24.12.3102"),
+            Mahasiswa("labib", "24.12.3102")
+        )
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, dashboardFragment)
-            .commit()
+        // 2. Inisialisasi RecyclerView
+        val rv_mahasiswa: RecyclerView = findViewById(R.id.rv_mahasiswa)
 
-        val Username = intent.getStringExtra("nama" )
+        // 3. Atur LayoutManager
+        rv_mahasiswa.layoutManager = GridLayoutManager(this, 2)
 
-        tv_ucapan.text = "Selamat Datang! $Username"
+        // 4. Inisialisasi Adapter
+        val adapter = MahasiswaAdapter(dataList)
 
-        btn_web.setOnClickListener {
-            val url = "https://amikom.ac.id"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
+        // 5. Set Adapter ke RecyclerView
+        rv_mahasiswa.adapter = adapter
     }
 }

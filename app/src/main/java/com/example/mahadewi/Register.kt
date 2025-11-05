@@ -1,6 +1,5 @@
 package com.example.mahadewi
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -8,8 +7,12 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioGroup
+import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,12 +30,12 @@ class Register : AppCompatActivity() {
 
         spinner_domisili.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
-                parent: AdapterView<*>?,
+                parent: AdapterView<*>,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                val selectedId = parent.getItemAtPosition(position).toString()
+                val selectedItem = parent.getItemAtPosition(position).toString()
                 Toast.makeText(this@Register, "Domisili : $selectedItem", Toast.LENGTH_SHORT).show()
             }
 
@@ -49,9 +52,8 @@ class Register : AppCompatActivity() {
             }
             val isAgreed = cb_Setuju.isChecked
             val selectedDom = spinner_domisili.selectedItem.toString()
-            Toast.makeText(this, "Domisili : $selectedDom, Jenis Kelamin ; $JenisKelamin, setuju ; $isAgreed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Domisili : $selectedDom, Jenis Kelamin : $JenisKelamin, Setuju : $isAgreed",Toast.LENGTH_SHORT).show()
         }
-
 
         // Tombol Kembali ke Login
         btn_BackToLogin.setOnClickListener {
