@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/button_nav_menu"
+        app:menu="@menu/botton_nav_medium"
         app:itemIconTint="@color/purple_500"
         app:itemTextColor="@color/purple_500"/>
 
