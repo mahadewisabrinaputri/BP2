@@ -24,7 +24,7 @@ class Register : AppCompatActivity() {
         val et_RegConfirmPassword: EditText = findViewById(R.id.et_reg_confirm_password)
         val btn_Register: Button = findViewById(R.id.btn_register)
         val btn_BackToLogin: Button = findViewById(R.id.btn_back_to_login)
-        val rg_JenisKelamin: RadioGroup = findViewById(R.id.rg_jenis_kelamin)
+        val rg_JenisKelamin: RadioGroup = findViewById(R.id.rg_jeniskelamin)
         val cb_Setuju: CheckBox = findViewById(R.id.cb_setuju)
         val spinner_domisili: Spinner = findViewById(R.id.spinner_domisili)
 

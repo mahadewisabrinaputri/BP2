@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,11 +23,14 @@ class Login : AppCompatActivity() {
         btn_login.setOnClickListener {
             val username = et_Username.text.toString()
 
-            val pindah : Intent= Intent(this, Dashboard:: class.java)
-
-            pindah.putExtra("nama", username)
-
-            startActivity(pindah)
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Isi username dan password dulu", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Login berhasil! Menuju dashboard...", Toast.LENGTH_SHORT).show()
+                val pindah = Intent(this, Dashboard::class.java)
+                pindah.putExtra("nama", username)
+                startActivity(pindah)
+            }
         }
 
         btn_daftar.setOnClickListener {
